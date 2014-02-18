@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    acts_as_redis_list (0.0.1)
+    has_many_scored (0.0.1)
       activerecord (>= 0.6.1)
       activerecord (>= 3.0)
 
@@ -50,7 +50,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_redis_list!
+  has_many_scored!
   rdoc (~> 4.1.0)
   rspec (~> 2.4)
   rubygems-tasks (~> 0.2)

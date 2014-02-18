@@ -18,7 +18,7 @@ begin
   require 'rdoc/task'
 
   RDoc::Task.new do |rdoc|
-    rdoc.title = "acts_as_redis_list"
+    rdoc.title = "has_many_scored"
   end
 rescue LoadError => e
   warn e.message

@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in acts_as_redis_list.gemspec
+# Specify your gem's dependencies in has_many_scored.gemspec
 gemspec

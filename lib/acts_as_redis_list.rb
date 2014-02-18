@@ -1,5 +1,5 @@
-require "acts_as_redis_list/version"
+require "has_many_scored/version"
 
-module ActsAsRedisList
+module HasManyScored
   # Your code goes here...
 end
