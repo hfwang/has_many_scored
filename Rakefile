@@ -1,16 +1,7 @@
 # encoding: utf-8
 
 require "bundler/gem_tasks"
-require 'rake'
-
-begin
-  require 'rubygems/tasks'
-
-  Gem::Tasks.new
-rescue LoadError => e
-  warn e.message
-  warn "Run `gem install rubygems-tasks` to install Gem::Tasks."
-end
+require "rake"
 
 begin
   require 'rdoc/task'
