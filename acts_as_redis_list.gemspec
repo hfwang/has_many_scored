@@ -18,8 +18,11 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency("activerecord", ">= 3.0")
-  gem.add_dependency("activerecord", ">= 0.6.1")
+  gem.add_dependency("redis-objects", ">= 0.6.1")
 
+  gem.add_development_dependency "pry"
+  gem.add_development_dependency "sqlite3"
+  gem.add_development_dependency "fakeredis"
   gem.add_development_dependency "rdoc", "~> 4.1.0"
   gem.add_development_dependency "rspec", "~> 2.4"
   gem.add_development_dependency "rubygems-tasks", "~> 0.2"
