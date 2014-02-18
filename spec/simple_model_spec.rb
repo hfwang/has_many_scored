@@ -49,8 +49,15 @@ describe Tag do
       expect(@tag.topics.size).to eq(0)
     end
 
-    it "disallows setting by topic ID" do
-      expect(@tag).not_to respond_to(:topic_ids=)
+    it "computes score when setting by ID" do
+      @tag.topic_ids = [@t1.id, @t2.id]
+      expect(@tag.topics(true).map(&:name)).to eq(["Topic 1", "Topic 2"])
+
+      @tag.topic_ids = [@t3.id]
+      expect(@tag.topics(true).map(&:name)).to eq(["Topic 3"])
+
+      @tag.topic_ids = [@t3.id, @t2.id, @t1.id]
+      expect(@tag.topics(true).map { |t| t.name }).to eq(["Topic 3", "Topic 1", "Topic 2"])
     end
 
     it "computes scores" do

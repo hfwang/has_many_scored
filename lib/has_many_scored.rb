@@ -30,7 +30,6 @@ module HasManyScored
         name,
         lambda { order('score DESC').extending(HasManyScored::HasManyScoredExtension.bind_extension(opts)) },
         habtm_opts)
-      undef_method("#{name.to_s.singularize}_ids=")
     end
 
     def scored_for_many(name, opts=nil)
@@ -55,7 +54,6 @@ module HasManyScored
         name,
         lambda { order('score DESC').extending(HasManyScored::ScoredForManyExtension.bind_extension(opts)) },
         habtm_opts)
-      undef_method("#{name.to_s.singularize}_ids=")
     end
   end
 
