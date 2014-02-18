@@ -16,16 +16,16 @@ module HasManyScored
       join_table = proxy_association.join_table
       reflection = proxy_association.reflection
 
+      owner_score = self.compute_score(proxy_association.owner)
+
       records.each do |record|
         update_manager = Arel::UpdateManager.new(join_table.engine)
         update_manager.table(join_table)\
-          .set(join_table[options[:score_column]] => self.compute_score(proxy_association.owner))\
+          .set(join_table[options[:score_column]] => owner_score)\
           .where(join_table[reflection.foreign_key].eq(proxy_association.owner.id))\
           .where(join_table[reflection.association_foreign_key].eq(record.id))\
           .take(1)
-        sql = update_manager.to_sql
-        puts sql
-        puts proxy_association.owner.connection.execute(sql)
+        proxy_association.owner.connection.execute(update_manager.to_sql)
       end
 
       reset

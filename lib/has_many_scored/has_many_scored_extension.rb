@@ -23,9 +23,7 @@ module HasManyScored
           .where(join_table[reflection.foreign_key].eq(proxy_association.owner.id))\
           .where(join_table[reflection.association_foreign_key].eq(record.id))\
           .take(1)
-        sql = update_manager.to_sql
-        puts sql
-        puts proxy_association.owner.connection.execute(sql)
+        proxy_association.owner.connection.execute(update_manager.to_sql)
       end
 
       reset
