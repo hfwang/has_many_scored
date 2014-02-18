@@ -1,3 +1,6 @@
+=== 1.1.1 / 2014-02-18
+* Get rid of debug print
+
 === 1.1.0 / 2014-02-18
 * Add ability to append additional extension methods by calling the association builder with a block.
 
