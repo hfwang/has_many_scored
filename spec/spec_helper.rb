@@ -1,13 +1,13 @@
 gem "rspec", "~> 2.4"
 require "rspec"
-require "acts_as_redis_list/version"
+require "has_many_scored/version"
 
 require "pry"
 require "active_record"
 require "fakeredis"
 require "redis-objects"
 
-include ActsAsRedisList
+include HasManyScored
 
 ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: ":memory:")
 ActiveRecord::Schema.verbose = false

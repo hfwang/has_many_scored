@@ -1,7 +1,7 @@
-require "acts_as_redis_list/version"
-require "acts_as_redis_list/has_many_scored_extension"
+require "has_many_scored/version"
+require "has_many_scored/has_many_scored_extension"
 
-module ActsAsRedisList
+module HasManyScored
   module ClassMethods
     def has_many_scored(name, opts=nil)
       opts = opts.try(:dup) || {}
@@ -26,7 +26,7 @@ module ActsAsRedisList
 
       habtm = has_and_belongs_to_many(
         name,
-        lambda { order('score DESC').extending(ActsAsRedisList::HasManyScoredExtension.bind_extension(opts)) },
+        lambda { order('score DESC').extending(HasManyScored::HasManyScoredExtension.bind_extension(opts)) },
         habtm_opts)
       undef_method("#{name.to_s.singularize}_ids=")
       class_eval  <<-CODE, __FILE__, __LINE__ + 1

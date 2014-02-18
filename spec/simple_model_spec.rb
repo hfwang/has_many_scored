@@ -1,10 +1,10 @@
 require 'spec_helper'
-require 'acts_as_redis_list'
+require 'has_many_scored'
 
 class Topic < ActiveRecord::Base
 end
 class Tag < ActiveRecord::Base
-  include ActsAsRedisList
+  include HasManyScored
   has_many_scored :topics
 end
 

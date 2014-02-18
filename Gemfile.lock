@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    acts_as_redis_list (0.0.1)
+    has_many_scored (0.0.1)
       activerecord (>= 3.0)
       redis-objects (>= 0.6.1)
 
@@ -63,8 +63,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_redis_list!
   fakeredis
+  has_many_scored!
   pry
   rdoc (~> 4.1.0)
   rspec (~> 2.4)

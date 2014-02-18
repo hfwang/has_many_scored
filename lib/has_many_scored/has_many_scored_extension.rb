@@ -1,9 +1,9 @@
-module ActsAsRedisList
+module HasManyScored
   # This module is used to extend the join model and mix in additional logic
   module HasManyScoredExtension
     def self.bind_extension(options)
       return Module.new do
-        include ActsAsRedisList::HasManyScoredExtension
+        include HasManyScored::HasManyScoredExtension
 
         # Options is defined using define_method so opts can still be within scope.
         define_method :options do

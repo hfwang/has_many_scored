@@ -1,4 +1,4 @@
-# acts_as_redis_list
+# has_many_scored
 
 ## Description
 
@@ -8,7 +8,7 @@ An ActiveRecord plugin that combines an ordered habtm-like association with opti
 
 Add this line to your application's Gemfile:
 
-    gem 'acts_as_redis_list'
+    gem 'has_many_scored'
 
 And then execute:
 
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install acts_as_redis_list
+    $ gem install has_many_scored
 
 ## Usage
 
@@ -24,7 +24,7 @@ TODO: Write usage instructions here
 
 ## Contributing
 
-1. Fork it ( http://github.com/hfwang/acts_as_redis_list/fork )
+1. Fork it ( http://github.com/hfwang/has_many_scored/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
