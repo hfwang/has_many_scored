@@ -2,6 +2,8 @@ require 'spec_helper'
 require 'has_many_scored'
 
 class Topic < ActiveRecord::Base
+  include HasManyScored
+  scored_for_many :tags
 end
 class Tag < ActiveRecord::Base
   include HasManyScored
@@ -25,14 +27,13 @@ def setup_schema!
   end
 end
 
-describe Topic do
+describe Tag do
   before(:each) do
     setup_schema!
   end
   after(:each) do
     teardown_db
   end
-
   context "with dummy data" do
     before do
       @t1 = Topic.create(:name => "Topic 1", :score => 0.2)
@@ -76,6 +77,42 @@ describe Topic do
       @tag.topics.update_score(@t2)
 
       expect(Tag.first.topics.map { |t| t.name }).to eq(["Topic 2", "Topic 3", "Topic 1"])
+    end
+  end
+end
+
+describe Topic do
+  before(:each) do
+    setup_schema!
+  end
+  after(:each) do
+    teardown_db
+  end
+
+  context "with dummy data" do
+    before do
+      @t1 = Topic.create(:name => "Topic 1", :score => 0.2)
+      @t2 = Topic.create(:name => "Topic 2", :score => 0.1)
+      @t3 = Topic.create(:name => "Topic 3", :score => 0.3)
+      @tag1 = Tag.create(:name => "Tag 1")
+      @tag2 = Tag.create(:name => "Tag 2")
+      @tag2 = Tag.create(:name => "Tag 3")
+      @tag1.topics << @t2 << @t3
+      @t1.tags << @tag1 << @tag2
+    end
+
+    it "computes size" do
+      expect(@t1.tags.size).to eq(2)
+      @t1.tags = []
+      expect(@t1.tags.size).to eq(0)
+    end
+
+    it "reads in scored order" do
+      # Sadly we have to call reload.
+      @tag1.topics.reload
+
+      expect(@tag1.topics.map { |t| t.name }).to eq(["Topic 3", "Topic 1", "Topic 2"])
+      expect(@tag2.topics.map { |t| t.name }).to eq(["Topic 1"])
     end
   end
 end
