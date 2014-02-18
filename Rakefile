@@ -4,7 +4,15 @@ require "bundler/gem_tasks"
 require 'rake'
 
 begin
-  gem 'rdoc'
+  require 'rubygems/tasks'
+
+  Gem::Tasks.new
+rescue LoadError => e
+  warn e.message
+  warn "Run `gem install rubygems-tasks` to install Gem::Tasks."
+end
+
+begin
   require 'rdoc/task'
 
   RDoc::Task.new do |rdoc|
@@ -17,7 +25,6 @@ end
 task :doc => :rdoc
 
 begin
-  gem 'rspec', '~> 2.4'
   require 'rspec/core/rake_task'
 
   RSpec::Core::RakeTask.new

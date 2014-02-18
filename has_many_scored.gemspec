@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 
 require File.expand_path("../lib/has_many_scored/version", __FILE__)
 
