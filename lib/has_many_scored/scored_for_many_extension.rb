@@ -2,7 +2,7 @@ module HasManyScored
   # This module is used to extend the join model and mix in additional logic
   module ScoredForManyExtension
     def self.bind_extension(options)
-      return Module.new do
+      return Proc.new do
         include HasManyScored::ScoredForManyExtension
 
         # Options is defined using define_method so opts can still be within scope.
