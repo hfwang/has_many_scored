@@ -28,7 +28,7 @@ module HasManyScored
 
       has_and_belongs_to_many(
         name,
-        lambda { order("#{opts[:score_column]} DESC") },
+        lambda { |owner| order("#{owner.association(name).join_table.name}.#{opts[:score_column]} DESC") },
         habtm_opts, &HasManyScored::HasManyScoredExtension.bind_extension(opts))
     end
 
@@ -50,9 +50,9 @@ module HasManyScored
       opts[:score_column] ||= :score
       opts[:score_field] ||= :score
 
-      habtm = has_and_belongs_to_many(
+      has_and_belongs_to_many(
         name,
-        lambda { order("#{opts[:score_column]} DESC") },
+        lambda { |owner| order("#{owner.association(name).join_table.name}.#{opts[:score_column]} DESC") },
         habtm_opts, &HasManyScored::HasManyScoredExtension.bind_extension(opts))
     end
   end
