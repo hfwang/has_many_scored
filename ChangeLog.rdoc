@@ -1,3 +1,6 @@
+=== 1.1.0 / 2014-02-18
+* Add ability to append additional extension methods by calling the association builder with a block.
+
 === 1.0.0 / 2014-02-15
 
 * Initial release
