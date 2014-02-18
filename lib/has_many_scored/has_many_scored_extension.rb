@@ -1,7 +1,7 @@
 module HasManyScored
   # This module is used to extend the join model and mix in additional logic
   module HasManyScoredExtension
-    def self.bind_extension(options)
+    def self.bind_extension(options, &block)
       return Proc.new do
         include HasManyScored::HasManyScoredExtension
 
@@ -9,6 +9,8 @@ module HasManyScored
         define_method :options do
           return options
         end
+
+        class_eval(&block) if block
       end
     end
 

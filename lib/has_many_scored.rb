@@ -8,7 +8,7 @@ module HasManyScored
                            :association_foreign_key, :readonly, :validate,
                            :autosave]
 
-    def has_many_scored(name, opts=nil)
+    def has_many_scored(name, opts=nil, &extension)
       opts = opts.try(:dup) || {}
 
       habtm_opts = opts.select { |k, v| VALID_HABTM_OPTIONS.include?(k) }
@@ -29,10 +29,10 @@ module HasManyScored
       has_and_belongs_to_many(
         name,
         lambda { |owner| order("#{owner.association(name).join_table.name}.#{opts[:score_column]} DESC") },
-        habtm_opts, &HasManyScored::HasManyScoredExtension.bind_extension(opts))
+        habtm_opts, &HasManyScored::HasManyScoredExtension.bind_extension(opts, &extension))
     end
 
-    def scored_for_many(name, opts=nil)
+    def scored_for_many(name, opts=nil, &extension)
       opts = opts.try(:dup) || {}
 
       habtm_opts = opts.select { |k, v| VALID_HABTM_OPTIONS.include?(k) }
@@ -53,7 +53,7 @@ module HasManyScored
       has_and_belongs_to_many(
         name,
         lambda { |owner| order("#{owner.association(name).join_table.name}.#{opts[:score_column]} DESC") },
-        habtm_opts, &HasManyScored::HasManyScoredExtension.bind_extension(opts))
+        habtm_opts, &HasManyScored::ScoredForManyExtension.bind_extension(opts, &extension))
     end
   end
 
