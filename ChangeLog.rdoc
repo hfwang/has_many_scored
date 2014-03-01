@@ -1,3 +1,6 @@
+=== 1.1.2 / 2014-03-01
+* Change ActiveRecord dependency version so that it will work with 4.0.3
+
 === 1.1.1 / 2014-02-18
 * Get rid of debug print
 
