@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.license       = "MIT"
   gem.authors       = ["Hsiu-Fan Wang"]
   gem.email         = "hfwang@porkbuns.net"
-  gem.homepage      = "https://rubygems.org/gems/has_many_scored"
+  gem.homepage      = "https://github.com/hfwang/has_many_scored/"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
