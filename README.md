@@ -1,5 +1,13 @@
 # has_many_scored
 
+[![Gem Version](http://img.shields.io/gem/v/has_many_scored.svg)][gem]
+[![Build Status](http://img.shields.io/travis/hfwang/has_many_scored.svg)][travis]
+[![MIT license](http://img.shields.io/badge/license-MIT-red.svg)][license]
+
+[gem]: https://rubygems.org/gems/has_many_scored
+[travis]: https://travis-ci.org/hfwang/has_many_scored
+[license]: https://github.com/hfwang/has_many_scored/blob/master/LICENSE
+
 ## Description
 
 An ActiveRecord plugin that combines an ordered habtm-like association with optional redis caching.
