@@ -5,3 +5,6 @@ rvm:
   - 2.1.1
 gemfile:
   - gemfiles/rails_4.0.gemfile
+addons:
+  code_climate:
+    repo_token: 3cefe5573992ba0e83d0c12be727f5a4d524e95b35e76ed60275d19eb7fccb54 bundle exec rake

@@ -6,6 +6,9 @@ require "active_record"
 # require "fakeredis"
 # require "redis-objects"
 
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: ":memory:")
 ActiveRecord::Schema.verbose = false
 
