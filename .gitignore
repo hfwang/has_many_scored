@@ -1,4 +1,5 @@
 Gemfile.lock
+*.gemfile.lock
 *.gem
 *.rbc
 .bundle
